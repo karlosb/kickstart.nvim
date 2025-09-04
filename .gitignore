@@ -1,6 +1,22 @@
+# Kickstart defaults
 tags
 test.sh
 .luarc.json
 nvim
-
 spell/
+
+# Vim/Neovim swap/backup/undo files
+*.swp
+*.swo
+*.un~
+*.bak
+
+# Local session files
+Session.vim
+*.session
+
+# Plugin cache (not needed in repo)
+.cache/
+
+# Optional: ignore lazy lockfile (uncomment if you don’t want to track it)
+# lazy-lock.json
