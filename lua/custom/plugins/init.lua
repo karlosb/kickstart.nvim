@@ -38,4 +38,5 @@ return {
     dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {},
   },
+  { 'numToStr/Comment.nvim', opts = {} },
 }
