@@ -253,6 +253,10 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
+---- Add EOL fix to stop git diffs on file re-save with no changes
+vim.opt.fixeol = false
+vim.opt.endofline = false
+
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
