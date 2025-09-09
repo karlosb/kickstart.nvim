@@ -244,6 +244,16 @@ rtp:prepend(lazypath)
 --  To update plugins you can run
 --    :Lazy update
 --
+--
+---- Paste latest macOS clipboard at cursor
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>p', -- Press \p if your leader is \
+  ':r !pbpaste<CR>', -- Read output of pbpaste into current buffer
+  { noremap = true, silent = true }
+)
+
+--
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
