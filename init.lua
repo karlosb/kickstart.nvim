@@ -958,7 +958,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'twig', 'php', 'javascript' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -1025,7 +1025,8 @@ require('lazy').setup({
     },
   },
 })
--- Force indentation width to 4 paces
+
+-- Force indentation width to 2 spaces
 require('guess-indent').setup {
   auto_cmd = false, -- don't automatically change values
 }
