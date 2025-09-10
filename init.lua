@@ -948,6 +948,27 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_fileinfo = function(args)
+        local sw = vim.bo.shiftwidth
+        local et = vim.bo.expandtab and 'SPC' or 'TAB'
+
+        -- Call the default section_fileinfo with args
+        local default = require('mini.statusline').section_fileinfo(args)
+
+        local ft = vim.bo.filetype ~= '' and vim.bo.filetype or 'noft'
+
+        return table.concat(
+          vim.tbl_filter(function(x)
+            return x ~= ''
+          end, {
+            default,
+            string.format('%s:%d', et, sw),
+            ft,
+          }),
+          ' '
+        )
+      end
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
