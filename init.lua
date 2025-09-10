@@ -1031,9 +1031,25 @@ require('guess-indent').setup {
   auto_cmd = false, -- don't automatically change values
 }
 
+-- Indentation settings
+vim.opt.autoindent = true -- Copy indent from current line when starting a new one
+vim.opt.smartindent = true -- Smarter auto-indent for languages with { }
+
+-- Let guess-indent.nvim handle tabstop/shiftwidth automatically
+-- But set safe defaults in case guess-indent doesn't run
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = true -- Use spaces instead of tabs
+
+-- Indent with Tab/Shift-Tab in visual mode (like VS Code)
+vim.keymap.set('v', '<Tab>', '>gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
+
+-- Indent current line with Tab/Shift-Tab in normal mode
+vim.keymap.set('n', '<Tab>', '>>', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-Tab>', '<<', { noremap = true, silent = true })
+
+vim.opt.smarttab = true -- Tab key respects shiftwidth at start of line
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
